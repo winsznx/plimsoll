@@ -1,0 +1,2 @@
+ALTER TABLE "plimsoll"."extracted_line_items" ADD COLUMN "method" text DEFAULT 'rule' NOT NULL;--> statement-breakpoint
+ALTER TABLE "plimsoll"."extracted_line_items" ADD COLUMN "confidence" real DEFAULT 1 NOT NULL;

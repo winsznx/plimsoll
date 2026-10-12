@@ -1,0 +1,50 @@
+.head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 20px; }
+.ref { font: 500 11.5px/1 var(--font-data); letter-spacing: 0.06em; color: var(--ink-3); display: flex; gap: 8px; }
+.ref span { color: var(--line-2); }
+.title { margin-top: 8px; font-size: 26px; letter-spacing: -0.025em; font-weight: 600; }
+.meta { margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: 13px; color: var(--ink-2); }
+
+.strip {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
+  gap: 28px;
+  align-items: center;
+  padding: 18px 22px;
+  margin-bottom: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--r-panel);
+  box-shadow: var(--shadow);
+  background-color: var(--surface);
+}
+.stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin: 0; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: color-mix(in srgb, var(--surface) 82%, transparent); }
+.stats > div { padding: 10px 12px 10px 0; display: flex; flex-direction: column; gap: 6px; }
+.stats > div + div { padding-left: 12px; border-left: 1px solid var(--line); }
+.stats dt { font: 500 10.5px/1 var(--font-data); letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-3); }
+.stats dd { margin: 0; font: 500 22px/1 var(--font-figure); letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+.stats dd span { font-size: 13px; color: var(--ink-3); letter-spacing: 0; }
+.stats .bad dt, .stats .bad dd { color: var(--held-ink); }
+
+.hold { display: flex; flex-direction: column; gap: 10px; min-width: 0; }
+.holdHead { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+.holdLabel, .clearLabel { display: inline-flex; align-items: center; gap: 6px; font: 600 11px/1.3 var(--font-data); letter-spacing: 0.06em; text-transform: uppercase; }
+.holdLabel { color: var(--held-ink); }
+.clearLabel { color: var(--ink-2); }
+.holdLabel svg, .clearLabel svg { width: 14px; height: 14px; flex: none; }
+.clearLabel svg { color: var(--signal-ink); }
+.heldFigure { color: var(--held-ink); }
+.heldFigure sup { color: inherit; }
+
+.proof { display: flex; align-items: center; gap: 8px; margin: 0 2px 16px; font-size: 12px; color: var(--ink-3); }
+.proof svg { width: 14px; height: 14px; flex: none; }
+
+@media (max-width: 1100px) {
+  .strip { grid-template-columns: 1fr; gap: 16px; }
+}
+@media (max-width: 720px) {
+  .head { flex-direction: column; align-items: flex-start; }
+  .strip { padding: 16px; }
+  .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .stats > div:nth-child(3) { padding-left: 0; border-left: 0; }
+  .stats > div:nth-child(n + 3) { border-top: 1px solid var(--line); }
+  .proof { align-items: flex-start; }
+}

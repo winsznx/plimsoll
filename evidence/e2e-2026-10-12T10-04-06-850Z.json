@@ -1,0 +1,162 @@
+{
+  "kind": "plimsoll.e2e-api.v1",
+  "base": "http://localhost:3000",
+  "dealId": "a1e0e379-cf96-4010-979f-c035a686ced3",
+  "reference": "PL-2052",
+  "contractId": "CDBLRSZSSVMBKWMXPOBBPS6J434TIR67P4QJKCJZ7XFNR2DPFHNJBTZL",
+  "steps": [
+    {
+      "name": "Journey A: buyer creates draft with integer-unit terms",
+      "pass": true,
+      "detail": "PL-2052"
+    },
+    {
+      "name": "Supplier cannot freeze buyer's terms",
+      "pass": true,
+      "detail": "ROLE_DENIED: This action requires the buyer role on this deal."
+    },
+    {
+      "name": "Terms frozen; per-deal escrow deployed",
+      "pass": true,
+      "detail": "CDBLRSZSSVMBKWMXPOBBPS6J434TIR67P4QJKCJZ7XFNR2DPFHNJBTZL",
+      "txHash": "46b050e3b96db205f234b445009a9b2fc75bee7d32e5e570a2be7402adc9fdb6"
+    },
+    {
+      "name": "Funding before acceptance is refused",
+      "pass": true,
+      "detail": "TERMS_VERSION_STALE: Both parties must accept the terms before funding."
+    },
+    {
+      "name": "buyer accepts terms digest on-chain",
+      "pass": true,
+      "detail": "ledger 5155148",
+      "txHash": "cf3a1a4e076f30f8341d5e6efba24723a6bdbf87305ec4e3091abbbd8b48dfbb"
+    },
+    {
+      "name": "supplier accepts terms digest on-chain",
+      "pass": true,
+      "detail": "ledger 5155150",
+      "txHash": "6222ef99995b64342a2851fc33a7bf2f580f539461060e45a7cd9894c570062b"
+    },
+    {
+      "name": "Buyer funds escrow; confirmed from ledger",
+      "pass": true,
+      "detail": "ledger 5155152",
+      "txHash": "8bbfd188e5617a9070bc4a41babaa5a3d6b89b85b9a802878e76b9ad9d12530c"
+    },
+    {
+      "name": "Milestone 1 released after buyer approval",
+      "pass": true,
+      "detail": "ledger 5155158",
+      "txHash": "2f03b9f04df3a7f4a7f75862c07a835ac85f589bc13b9e3b899ea29fd5c1d725"
+    },
+    {
+      "name": "Journey B: packing list quantity mismatch detected as blocking",
+      "pass": true,
+      "detail": "qty:KC-TILE-30 actual=148"
+    },
+    {
+      "name": "Evidence bundle refused while blocking finding open",
+      "pass": true,
+      "detail": "EVIDENCE_NOT_READY: 1 blocking finding(s) must be corrected or waived by the buyer first."
+    },
+    {
+      "name": "Release attempt rejected by contract (no evidence anchored)",
+      "pass": true,
+      "detail": "EvidenceNotAnchored: EvidenceNotAnchored: No evidence bundle digest has been anchored for this milestone."
+    },
+    {
+      "name": "Supplier uploads corrected packing list as version 2",
+      "pass": true,
+      "detail": "version 2"
+    },
+    {
+      "name": "Quantity finding no longer reproduces on corrected version",
+      "pass": true,
+      "detail": "R-QTY inactive"
+    },
+    {
+      "name": "Evidence bundle binds the corrected version",
+      "pass": true,
+      "detail": "digest c8dbd77897de3f8b… packing list v2"
+    },
+    {
+      "name": "Supplier anchors evidence digest on-chain",
+      "pass": true,
+      "detail": "ledger 5155161",
+      "txHash": "ab3143a14bbdb0a70d63936f6d7ce5d939611d980dcd2feafdfba49ee4509439"
+    },
+    {
+      "name": "Forwarder (not appointed approver) cannot approve",
+      "pass": true,
+      "detail": "ROLE_DENIED: You do not control a appointed approver signing address for this deal."
+    },
+    {
+      "name": "Inspector approves current evidence digest",
+      "pass": true,
+      "detail": "ledger 5155163",
+      "txHash": "41fa10671e237d87b5e6ebe080c6806f4a730f58b5b081ff385f3304472e673a"
+    },
+    {
+      "name": "Release with 1 of 2 approvals rejected by contract",
+      "pass": true,
+      "detail": "QuorumNotMet: QuorumNotMet: The required number of appointed approvals on current evidence has not been reached."
+    },
+    {
+      "name": "Buyer approves; quorum 2 of 2",
+      "pass": true,
+      "detail": "ledger 5155165",
+      "txHash": "f1347c10f3993d8229fc4f65cc455fb1ad202cf3ff844953e8873a27d29fa3b8"
+    },
+    {
+      "name": "Journey C: carrier-handoff tranche released exactly once",
+      "pass": true,
+      "detail": "ledger 5155167",
+      "txHash": "fc8d8adc1b82a0e446cdad2f890071d57859e0b92c3d47f9dba6ebafe0dd4092"
+    },
+    {
+      "name": "Replay of release rejected by contract",
+      "pass": true,
+      "detail": "MilestoneNotOpen: MilestoneNotOpen: The milestone is already released, resolved or refunded."
+    },
+    {
+      "name": "Journey D: buyer freezes the receipt tranche",
+      "pass": true,
+      "detail": "ledger 5155169",
+      "txHash": "25aec590be415402ad3b0250ca4e0608bea43cdb7f4b6c9e46ed530a6de80dce"
+    },
+    {
+      "name": "Buyer cannot resolve own dispute",
+      "pass": true,
+      "detail": "ROLE_DENIED: You do not control a resolver signing address for this deal."
+    },
+    {
+      "name": "Over-allocation refused",
+      "pass": true,
+      "detail": "VALIDATION_FAILED: Allocation must total exactly 29,720.00; it totals 40,000.00."
+    },
+    {
+      "name": "Resolver splits 7,430 / 22,290 atomically",
+      "pass": true,
+      "detail": "ledger 5155171",
+      "txHash": "461089404d0c8ff1054d58bc9d9efe3d5df48a4fbda1167df557fe2afbc1e17e"
+    },
+    {
+      "name": "Ledger readback: Completed, conservation holds",
+      "pass": true,
+      "detail": "released 1411700000000 refunded 74300000000 balance 0"
+    },
+    {
+      "name": "Public proof exposes no dispute text or document fields",
+      "pass": true,
+      "detail": "16 transactions"
+    },
+    {
+      "name": "Audit hash chain intact",
+      "pass": true,
+      "detail": "137 entries"
+    }
+  ],
+  "passed": true,
+  "ranAt": "2026-10-12T10:04:06.850Z"
+}

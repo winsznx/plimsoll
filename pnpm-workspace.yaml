@@ -1,0 +1,10 @@
+packages:
+  - apps/*
+  - packages/*
+  - tests/e2e
+  - infra/*
+allowBuilds:
+  esbuild: true
+  workerd: true
+minimumReleaseAgeExclude:
+  - zod@4.6.6

@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  // Drives Plimsoll's background work on serverless hosts: every minute it calls the app's
+  // /api/internal/tick, which runs queued jobs, the ledger event indexer and TTL upkeep.
+  "name": "plimsoll-scheduler",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-09-15",
+  "workers_dev": false,
+  "triggers": { "crons": ["* * * * *"] },
+  "vars": {
+    // The deployed app origin.
+    "APP_URL": "https://plimsoll-omega.vercel.app"
+  },
+  "observability": { "enabled": true, "head_sampling_rate": 1 }
+  // Secret (not in config): CRON_SECRET, set with `wrangler secret put CRON_SECRET`.
+}

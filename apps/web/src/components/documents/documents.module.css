@@ -1,0 +1,144 @@
+.headCount { font: 500 11.5px var(--font-data); color: var(--ink-3); text-align: right; }
+
+/* Findings lens: dense list beside the selected finding */
+.findingList { list-style: none; margin: 0; padding: 0; min-width: 0; }
+.finding {
+  display: grid;
+  grid-template-columns: 112px minmax(0, 1fr) 132px 118px;
+  gap: 14px;
+  align-items: center;
+  width: 100%;
+  text-align: left;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: inset 3px 0 0 transparent;
+  padding: 12px 18px;
+  min-height: 44px;
+}
+.findingList li:last-child .finding { border-bottom: 0; }
+.finding:hover { background: var(--surface-2); }
+.findingBlocking { box-shadow: inset 3px 0 0 var(--held); }
+.findingSelected { background: var(--surface-2); box-shadow: inset 3px 0 0 var(--hull); }
+.findingBlocking.findingSelected { background: color-mix(in srgb, var(--held-soft) 60%, var(--surface)); box-shadow: inset 3px 0 0 var(--held); }
+.findingInactive { opacity: 0.72; }
+.findingChips { display: flex; flex-direction: column; align-items: flex-start; gap: 5px; }
+.findingWhat { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
+.findingRule { font: 500 11px/1.3 var(--font-data); letter-spacing: 0.02em; color: var(--ink-3); overflow-wrap: anywhere; }
+.findingMessage { font-size: 13px; line-height: 1.4; color: var(--ink); }
+
+.diff { display: flex; flex-direction: column; gap: 4px; font: 500 13px/1.2 var(--font-data); font-variant-numeric: tabular-nums; min-width: 0; }
+.diff i { display: inline-block; width: 42px; font: 500 9.5px/1 var(--font-data); font-style: normal; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-3); }
+.diffExp, .diffGot { overflow-wrap: anywhere; }
+.diffBad { color: var(--held-ink); }
+
+.holds { display: flex; flex-direction: column; align-items: flex-end; gap: 5px; }
+.holdsTag { display: inline-flex; align-items: center; gap: 4px; font: 600 10.5px/1 var(--font-data); letter-spacing: 0.06em; text-transform: uppercase; color: var(--held-ink); background: var(--held-soft); padding: 4px 6px; border-radius: var(--r-chip); }
+.holdsTag svg { width: 11px; height: 11px; }
+.noHold { font: 500 11px var(--font-data); color: var(--ink-3); }
+
+.findingDetail { padding: 16px 18px 18px; min-width: 0; border-top: 1px solid var(--line); background: var(--surface-2); border-radius: 0 0 var(--r-panel) var(--r-panel); }
+.detail { display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr) minmax(0, 1fr); gap: 16px 28px; align-items: start; }
+.detailCol { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.detailHead { font: 600 10.5px/1.4 var(--font-data); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); overflow-wrap: anywhere; }
+.versus { display: grid; grid-template-columns: minmax(0, 1fr) 16px minmax(0, 1fr); gap: 10px; align-items: center; }
+.versus > div { display: flex; flex-direction: column; gap: 4px; padding: 10px 12px; background: var(--surface); border: 1px solid var(--line); border-radius: 8px; min-width: 0; }
+.versus strong { font: 500 18px/1.1 var(--font-figure); letter-spacing: -0.04em; font-variant-numeric: tabular-nums; overflow-wrap: anywhere; }
+.versusLabel { font: 500 10px/1 var(--font-data); letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-3); }
+.versusArrow { width: 16px; height: 16px; color: var(--ink-3); }
+.versusBad { border-color: var(--held-line) !important; background: var(--held-soft) !important; }
+.versusBad strong, .versusBad .versusLabel { color: var(--held-ink); }
+.quote { font: 400 11.5px/1.5 var(--font-data); color: var(--ink-3); overflow-wrap: anywhere; margin-top: -4px; }
+.detailKv { grid-template-columns: 84px 1fr; gap: 8px 12px; }
+.explanation { border-left: 2px solid var(--line-2); padding: 2px 0 2px 12px; display: flex; flex-direction: column; gap: 4px; }
+.explanationHead { display: flex; align-items: center; gap: 6px; font: 500 11px/1.3 var(--font-data); color: var(--ink-3); }
+.explanationHead svg { width: 13px; height: 13px; flex: none; }
+.correction { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; padding: 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); font-size: 13px; }
+.correction :global(.btn) { margin-top: 4px; }
+
+.decide { display: flex; flex-direction: column; gap: 8px; }
+.decideRow { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 10px; align-items: start; }
+.decideLabel { padding-top: 10px; font: 600 10.5px/1 var(--font-data); letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-3); }
+.decideRow :global(.btn)[aria-pressed="true"] { border-color: var(--hull); box-shadow: inset 0 0 0 1px var(--hull); color: var(--ink); }
+.decisionForm { border: 1px solid var(--line); background: var(--surface); padding: 12px; border-radius: 8px; }
+
+/* Source papers */
+.compareHead { flex-wrap: wrap; }
+.compareControls { display: flex; align-items: flex-end; gap: 10px; flex-wrap: wrap; }
+.compareControls :global(.field) { gap: 4px; }
+.compareControls :global(.label) { font: 500 10.5px/1 var(--font-data) !important; letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-3); }
+.compareControls select { min-width: 190px; max-width: 240px; }
+.segmented { display: inline-flex; border: 1px solid var(--line-2); border-radius: var(--r-control); overflow: hidden; }
+.segmented button { border: 0; border-right: 1px solid var(--line-2); background: var(--surface); min-height: 36px; min-width: 48px; padding: 0 10px; font: 500 11px var(--font-data); }
+.segmented button:last-child { border-right: 0; }
+.segmented button[aria-pressed="true"] { background: var(--hull); color: var(--on-hull); }
+.compare { border-radius: 0; border-width: 0; }
+
+.pane { min-width: 0; background: var(--surface); display: flex; flex-direction: column; }
+.paneHead { display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px; border-bottom: 1px solid var(--line); }
+.paneHead h3 { font-size: 13.5px; }
+.paneHead p { overflow-wrap: anywhere; margin-top: 2px; }
+.pages { padding: 16px; display: flex; flex-direction: column; gap: 14px; background: var(--well); flex: 1; }
+.paperScroll { overflow-x: auto; }
+.paper { container-type: inline-size; min-height: 0; overflow: hidden; border: 1px solid var(--line); border-radius: 3px; box-shadow: var(--shadow); }
+.line { line-height: 1; }
+.line:global(.hit), .line:global(.ok) { z-index: 1; }
+
+/* The paper replica is always a light sheet, so its marks use the light-theme held and signal inks in both themes. */
+.markTag { position: absolute; right: 100%; margin-right: 4px; font: 600 1em/1 var(--font-data); color: inherit; }
+:global(.paper-line.hit) > .markTag { color: #b0281f; }
+:global(.paper-line.ok) > .markTag { color: #765400; }
+.value { font-weight: 700; text-decoration: underline; text-underline-offset: 2px; }
+.folio { position: absolute; right: 6px; bottom: 4px; font: 400 9px var(--font-data); color: #5e6c7b; }
+.flowPaper { min-height: 0; padding: 16px 16px 16px 30px; border: 1px solid var(--line); }
+.flowPaper .flowLine { position: relative; display: block; font-size: 11px; line-height: 1.7; white-space: pre-wrap; }
+.gapRule { position: absolute; left: 3%; right: 3%; border-top: 1px dashed #bfc9d3; }
+.paperLoading { padding: 24px 20px; display: flex; flex-direction: column; gap: 10px; }
+
+.annotation { display: flex; flex-wrap: wrap; gap: 6px 20px; align-items: center; padding: 11px 18px; border-top: 1px solid var(--line); background: var(--surface-2); border-radius: 0 0 var(--r-panel) var(--r-panel); }
+.legendHit, .legendOk { display: inline-grid; place-items: center; width: 18px; height: 18px; margin-right: 4px; font: 600 11px var(--font-data); border: 1px solid currentColor; border-radius: 3px; }
+.legendHit { color: var(--held-ink); }
+.legendOk { color: var(--signal-ink); }
+
+.modelFields { border: 1px dashed var(--line-2); border-radius: 8px; background: var(--surface); padding: 12px 14px; }
+.modelFields ul { list-style: none; margin: 10px 0 0; padding: 0; display: grid; gap: 8px; }
+.modelField { position: relative; display: grid; gap: 2px; padding: 6px 10px; border-left: 2px solid var(--line); overflow-wrap: anywhere; }
+.modelField .markTag { position: static; margin-right: 4px; }
+.modelField.hit { border-left-color: var(--held); background: var(--held-soft); }
+.modelField.ok { border-left-color: var(--signal); background: var(--signal-soft); }
+
+/* Intake: what each milestone needs, and the upload form */
+.intake { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+.intake > * { padding: 16px 18px; min-width: 0; }
+.uploadCol { border-left: 1px solid var(--line); }
+.colHead { font: 500 10.5px/1.4 var(--font-data); letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-3); margin-bottom: 10px; }
+.required { display: flex; flex-direction: column; gap: 18px; }
+.checklist { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; }
+.checklist li { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; gap: 10px; align-items: center; padding: 7px 0; border-bottom: 1px solid var(--line); }
+.checklist li:last-child { border-bottom: 0; }
+
+@media (max-width: 1240px) {
+  .detail { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .detail > :last-child { grid-column: 1 / -1; }
+  .finding { grid-template-columns: 104px minmax(0, 1fr) 118px; }
+  .holds { grid-column: 2 / -1; flex-direction: row; justify-content: flex-start; align-items: center; gap: 10px; }
+}
+@media (max-width: 900px) {
+  .intake { grid-template-columns: 1fr; }
+  .uploadCol { border-left: 0; border-top: 1px solid var(--line); }
+}
+@media (max-width: 640px) {
+  .finding { grid-template-columns: minmax(0, 1fr); gap: 8px; padding: 12px 16px; }
+  .findingChips { flex-direction: row; flex-wrap: wrap; }
+  .holds { grid-column: auto; }
+  .diff { flex-direction: row; flex-wrap: wrap; gap: 4px 14px; }
+  .diff i { width: auto; margin-right: 6px; }
+  .findingDetail { padding: 14px 16px; }
+  .detail { grid-template-columns: 1fr; }
+  .versus { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .versusArrow { display: none; }
+  .compareControls { flex: 1 1 100%; }
+  .compareControls, .compareControls :global(.field) { width: 100%; }
+  .compareControls select { max-width: none; min-width: 0; }
+  .intake > * { padding: 14px 16px; }
+}

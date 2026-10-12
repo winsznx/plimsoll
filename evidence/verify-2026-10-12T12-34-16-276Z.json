@@ -1,0 +1,252 @@
+{
+  "kind": "plimsoll.chain-verification.v1",
+  "network": "testnet",
+  "passphrase": "Test SDF Network ; September 2015",
+  "escrowContractId": "CD6SJP5S7PCFS6QDRJSZKQTACFSIPLY2EH75P4SUQXGPCGB25MBFM63Y",
+  "escrowExplorer": "https://stellar.expert/explorer/testnet/contract/CD6SJP5S7PCFS6QDRJSZKQTACFSIPLY2EH75P4SUQXGPCGB25MBFM63Y",
+  "wasmHash": "330d774c77ffd754355c2ff9e615b615dc86ae1a61b2fbd9fd51039976915db8",
+  "token": {
+    "code": "DEMOUSD",
+    "issuer": "GCSIEOA6SHTHQDJ7C4BGPY6YBO7I63DJVDELL4P7HAITZ2LRBLJEQKP6",
+    "contractId": "CDXPYF5YZ3SYTUB5OS5T3NUQWH34G65RBGIB2YTECWZ4Y35TP3IAJE2B",
+    "note": "Demo token (not USDC)"
+  },
+  "dealId": "2e396780-4858-433a-aa23-979052b122b5",
+  "termsDigest": "1f1f038ad2b37dae98018a1035df26670b3d2c35cc3520283400aeff2290c5e9",
+  "signers": {
+    "buyer": "GAGLLYVVIANYAKOFACBGYKH7JAS2WWTR32TLQKNDQWIYPXAVJECA2VJU",
+    "supplier": "GCGLVI5VL7GKSAIJP63BBWDOISRUKCCFACB5A22LKH2FGBEXGOTKNLKS",
+    "inspector": "GBWT5RFUKRHI3TJPT7QD4W4YCWHZSLX35VN3M7FD6AYYWCLJZ6ZMAYUQ",
+    "resolver": "GCPTFTAOWSPM6B7KXGJQA2HPAIBMX5EXUWO4SA77ZL2BNNSRQTM36TO3",
+    "relayer": "GC6JZKZQI3EUTO6K6RK7S2OGFK256AIHRUQSZDZOYDS6RMJYK6WE6Y2C"
+  },
+  "trials": [
+    {
+      "name": "Fund before both parties accept",
+      "expect": "rejected",
+      "pass": true,
+      "txHash": null,
+      "ledger": null,
+      "detail": "WrongStatus at simulation; balances unchanged: true",
+      "explorer": null
+    },
+    {
+      "name": "Buyer accepts terms digest",
+      "expect": "success",
+      "pass": true,
+      "txHash": "8a23c3ddb7672cd4070dc828f8f27aaf99c37eac2b7358134e5d03aebcad4946",
+      "ledger": 5156946,
+      "detail": "confirmed",
+      "balanceDelta": {
+        "buyer": "0.00",
+        "supplier": "0.00",
+        "escrow": "0.00"
+      },
+      "explorer": "https://stellar.expert/explorer/testnet/tx/8a23c3ddb7672cd4070dc828f8f27aaf99c37eac2b7358134e5d03aebcad4946"
+    },
+    {
+      "name": "Supplier accepts a different digest",
+      "expect": "rejected",
+      "pass": true,
+      "txHash": null,
+      "ledger": null,
+      "detail": "TermsDigestMismatch at simulation; balances unchanged: true",
+      "explorer": null
+    },
+    {
+      "name": "Supplier accepts terms digest",
+      "expect": "success",
+      "pass": true,
+      "txHash": "fd821c1183508022436bdc0748a8bbc610da899212bf514756baa75cde3063be",
+      "ledger": 5156950,
+      "detail": "confirmed",
+      "balanceDelta": {
+        "buyer": "0.00",
+        "supplier": "0.00",
+        "escrow": "0.00"
+      },
+      "explorer": "https://stellar.expert/explorer/testnet/tx/fd821c1183508022436bdc0748a8bbc610da899212bf514756baa75cde3063be"
+    },
+    {
+      "name": "Buyer funds escrow",
+      "expect": "success",
+      "pass": true,
+      "txHash": "284adb2658058faf498e23f3f0f3e719f1955bb37f4f9b78618450fabb1dbf52",
+      "ledger": 5156952,
+      "detail": "confirmed",
+      "balanceDelta": {
+        "buyer": "-1,000.00",
+        "supplier": "0.00",
+        "escrow": "1,000.00"
+      },
+      "explorer": "https://stellar.expert/explorer/testnet/tx/284adb2658058faf498e23f3f0f3e719f1955bb37f4f9b78618450fabb1dbf52"
+    },
+    {
+      "name": "Supplier anchors evidence bundle",
+      "expect": "success",
+      "pass": true,
+      "txHash": "0cc0269d133f596bdeabaaa60ba6d39e31147c3648e698e348590ef5321faa5c",
+      "ledger": 5156954,
+      "detail": "confirmed",
+      "balanceDelta": {
+        "buyer": "0.00",
+        "supplier": "0.00",
+        "escrow": "0.00"
+      },
+      "explorer": "https://stellar.expert/explorer/testnet/tx/0cc0269d133f596bdeabaaa60ba6d39e31147c3648e698e348590ef5321faa5c"
+    },
+    {
+      "name": "Release with zero approvals",
+      "expect": "rejected",
+      "pass": true,
+      "txHash": null,
+      "ledger": null,
+      "detail": "QuorumNotMet at simulation; balances unchanged: true",
+      "explorer": null
+    },
+    {
+      "name": "Buyer approves current evidence",
+      "expect": "success",
+      "pass": true,
+      "txHash": "53f5779847181cbd498c3acfb089cca7240ece2d2742ef88285e794a821b347c",
+      "ledger": 5156958,
+      "detail": "confirmed",
+      "balanceDelta": {
+        "buyer": "0.00",
+        "supplier": "0.00",
+        "escrow": "0.00"
+      },
+      "explorer": "https://stellar.expert/explorer/testnet/tx/53f5779847181cbd498c3acfb089cca7240ece2d2742ef88285e794a821b347c"
+    },
+    {
+      "name": "Release with 1 of 2 approvals",
+      "expect": "rejected",
+      "pass": true,
+      "txHash": null,
+      "ledger": null,
+      "detail": "QuorumNotMet at simulation; balances unchanged: true",
+      "explorer": null
+    },
+    {
+      "name": "Unappointed signer approves",
+      "expect": "rejected",
+      "pass": true,
+      "txHash": null,
+      "ledger": null,
+      "detail": "NotAppointedApprover at simulation; balances unchanged: true",
+      "explorer": null
+    },
+    {
+      "name": "Inspector approves stale evidence digest",
+      "expect": "rejected",
+      "pass": true,
+      "txHash": null,
+      "ledger": null,
+      "detail": "EvidenceDigestMismatch at simulation; balances unchanged: true",
+      "explorer": null
+    },
+    {
+      "name": "Inspector approves current evidence",
+      "expect": "success",
+      "pass": true,
+      "txHash": "418e855d74a307d9494c4238d8ea612204f3c722de97360e8acf292d44db9442",
+      "ledger": 5156963,
+      "detail": "confirmed",
+      "balanceDelta": {
+        "buyer": "0.00",
+        "supplier": "0.00",
+        "escrow": "0.00"
+      },
+      "explorer": "https://stellar.expert/explorer/testnet/tx/418e855d74a307d9494c4238d8ea612204f3c722de97360e8acf292d44db9442"
+    },
+    {
+      "name": "Permissionless release of milestone 0",
+      "expect": "success",
+      "pass": true,
+      "txHash": "87ebfc60cf89d7923ffc1ebf60da99383975bf61168fb88e4a7bee8cbae7eeee",
+      "ledger": 5156965,
+      "detail": "confirmed",
+      "balanceDelta": {
+        "buyer": "0.00",
+        "supplier": "600.00",
+        "escrow": "-600.00"
+      },
+      "explorer": "https://stellar.expert/explorer/testnet/tx/87ebfc60cf89d7923ffc1ebf60da99383975bf61168fb88e4a7bee8cbae7eeee"
+    },
+    {
+      "name": "Replay release of milestone 0",
+      "expect": "rejected",
+      "pass": true,
+      "txHash": null,
+      "ledger": null,
+      "detail": "MilestoneNotOpen at simulation; balances unchanged: true",
+      "explorer": null
+    },
+    {
+      "name": "Buyer disputes milestone 1",
+      "expect": "success",
+      "pass": true,
+      "txHash": "af4472ec311e408e408f375578fdcd5231a3464ef64d63d6309d75b1381535d9",
+      "ledger": 5156968,
+      "detail": "confirmed",
+      "balanceDelta": {
+        "buyer": "0.00",
+        "supplier": "0.00",
+        "escrow": "0.00"
+      },
+      "explorer": "https://stellar.expert/explorer/testnet/tx/af4472ec311e408e408f375578fdcd5231a3464ef64d63d6309d75b1381535d9"
+    },
+    {
+      "name": "Release disputed milestone",
+      "expect": "rejected",
+      "pass": true,
+      "txHash": null,
+      "ledger": null,
+      "detail": "MilestoneDisputed at simulation; balances unchanged: true",
+      "explorer": null
+    },
+    {
+      "name": "Resolver over-allocates",
+      "expect": "rejected",
+      "pass": true,
+      "txHash": null,
+      "ledger": null,
+      "detail": "AllocationMismatch at simulation; balances unchanged: true",
+      "explorer": null
+    },
+    {
+      "name": "Buyer tries to resolve own dispute",
+      "expect": "rejected",
+      "pass": true,
+      "txHash": null,
+      "ledger": null,
+      "detail": "NotResolver at simulation; balances unchanged: true",
+      "explorer": null
+    },
+    {
+      "name": "Resolver splits 150 / 250",
+      "expect": "success",
+      "pass": true,
+      "txHash": "3b911a543f4610fa4afe6960406ad29ecb5b9a30568e19011cb527ffd5f79a0a",
+      "ledger": 5156973,
+      "detail": "confirmed",
+      "balanceDelta": {
+        "buyer": "150.00",
+        "supplier": "250.00",
+        "escrow": "-400.00"
+      },
+      "explorer": "https://stellar.expert/explorer/testnet/tx/3b911a543f4610fa4afe6960406ad29ecb5b9a30568e19011cb527ffd5f79a0a"
+    },
+    {
+      "name": "Final readback: Completed and funded = released + refunded + balance",
+      "expect": "success",
+      "pass": true,
+      "txHash": null,
+      "ledger": 5156973,
+      "detail": "status=Completed funded=1,000.00 released=850.00 refunded=150.00 balance=0.00",
+      "explorer": null
+    }
+  ],
+  "passed": true,
+  "ranAt": "2026-10-12T12:34:16.276Z"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "@plimsoll/documents",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./src/index.ts" },
+  "scripts": { "typecheck": "tsc -p .", "test": "vitest run" },
+  "dependencies": { "@plimsoll/domain": "workspace:*", "unpdf": "^1.8.1", "pdf-lib": "^1.17.1" }
+}

@@ -1,0 +1,70 @@
+.head { display: flex; align-items: flex-end; justify-content: space-between; gap: 24px; margin-bottom: 20px; }
+.ref { font: 500 11.5px/1 var(--font-data); letter-spacing: 0.06em; color: var(--ink-3); display: flex; gap: 8px; }
+.ref span { color: var(--line-2); }
+.title { margin-top: 8px; font-size: 26px; letter-spacing: -0.025em; font-weight: 600; }
+.meta { margin-top: 10px; display: flex; flex-wrap: wrap; align-items: center; gap: 8px 14px; font-size: 13px; color: var(--ink-2); }
+
+/* Hero: the frozen tranche as the instrument reads it */
+.hero {
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr) 250px;
+  gap: 28px;
+  padding: 22px 24px;
+  margin-bottom: 20px;
+  border: 1px solid var(--held-line);
+  border-radius: var(--r-panel);
+  box-shadow: inset 3px 0 0 var(--held), var(--shadow);
+  background-color: var(--surface);
+}
+.heroResolved { border-color: var(--line); box-shadow: inset 3px 0 0 var(--signal), var(--shadow); }
+.frozen { display: flex; flex-direction: column; gap: 12px; min-width: 0; }
+.state { display: inline-flex; align-items: center; gap: 6px; font: 600 11px/1 var(--font-data); letter-spacing: 0.08em; text-transform: uppercase; color: var(--held-ink); }
+.state svg { width: 15px; height: 15px; }
+.heroResolved .state { color: var(--signal-ink); }
+.frozenFigure { color: var(--held-ink); }
+.frozenFigure sup { color: inherit; }
+.heroResolved .frozenFigure { color: var(--ink); }
+.frozenWhat { font-size: 12.5px; color: var(--ink-2); }
+.context { display: flex; flex-direction: column; gap: 10px; min-width: 0; justify-content: center; }
+.scope { font-size: 12px; color: var(--ink-3); }
+.resolver { display: flex; flex-direction: column; gap: 6px; padding-left: 24px; border-left: 1px solid var(--line); min-width: 0; justify-content: center; }
+.resolver strong { font-size: 14px; font-weight: 600; }
+
+/* Record: the claim then every statement, as one thread */
+.thread { list-style: none; margin: 0; padding: 4px 0 0; }
+.post { position: relative; padding: 12px 18px 14px 34px; border-bottom: 1px solid var(--line); }
+.post::before { content: ""; position: absolute; left: 18px; top: 18px; width: 7px; height: 7px; border-radius: 50%; background: var(--line-2); }
+.post::after { content: ""; position: absolute; left: 21px; top: 30px; bottom: -14px; width: 1px; background: var(--line); }
+.post:last-child::after { display: none; }
+.claim::before { background: var(--held); }
+.postHead { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 10px; font-size: 13px; }
+.postRole { font: 500 10px/1 var(--font-data); letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-3); padding: 3px 5px; border-radius: var(--r-chip); background: var(--well); }
+.claim .postRole { color: var(--held-ink); background: var(--held-soft); }
+.postTime { margin-left: auto; font: 400 11px var(--font-data); color: var(--ink-3); }
+.post p { margin-top: 6px; font-size: 13px; line-height: 1.55; white-space: pre-wrap; max-width: 72ch; }
+.claim p { padding-left: 10px; border-left: 2px solid var(--held-line); }
+.compose { padding: 14px 18px 16px; display: flex; flex-direction: column; gap: 8px; }
+
+.decision { box-shadow: var(--shadow-lift); }
+.rejected { font-size: 13px; color: var(--held-ink); }
+
+.party { display: grid; grid-template-columns: 74px minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 9px 18px; border-bottom: 1px solid var(--line); font-size: 13px; }
+.party:last-child { border-bottom: 0; }
+.role { font: 500 10.5px/1 var(--font-data); letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-3); }
+.partyName { display: flex; align-items: center; min-width: 0; }
+.partyName > span:first-child { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.you { flex: none; font: 600 10px/1 var(--font-data); color: var(--signal-ink); background: var(--signal-soft); padding: 2px 5px; border-radius: 3px; margin-left: 6px; }
+
+@media (max-width: 1180px) {
+  .hero { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.3fr); }
+  .resolver { grid-column: 1 / -1; padding-left: 0; border-left: 0; padding-top: 16px; border-top: 1px solid var(--line); }
+}
+@media (max-width: 720px) {
+  .head { flex-direction: column; align-items: flex-start; }
+  .hero { grid-template-columns: 1fr; padding: 18px 16px; gap: 20px; }
+  .post { padding: 12px 16px 14px 32px; }
+  .post::before { left: 16px; }
+  .post::after { left: 19px; }
+  .postTime { margin-left: 0; flex-basis: 100%; }
+  .compose { padding: 14px 16px; }
+}

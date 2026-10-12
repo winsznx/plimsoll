@@ -1,0 +1,19 @@
+.form { display: flex; flex-direction: column; gap: 14px; }
+.tally { font: 500 12px/1.3 var(--font-data); color: var(--ink-2); margin-top: -4px; }
+.tallyOk { color: var(--signal-ink); }
+.off { color: var(--held-ink); }
+
+/* Split bar: buyer refund left, unallocated (still held) middle, payee payout right */
+.split { display: flex; flex-direction: column; gap: 10px; }
+.splitBar { display: flex; gap: 2px; height: 30px; }
+.splitBar > span { min-width: 6px; border-radius: 5px; }
+.splitOver { outline: 2px solid var(--held); outline-offset: 2px; border-radius: 6px; }
+.toBuyer { background: repeating-linear-gradient(135deg, var(--line-2) 0 2px, var(--surface-2) 2px 6px); box-shadow: inset 0 0 0 1px var(--line-2); }
+.toPayee { background: var(--signal); }
+.unallocated { background: repeating-linear-gradient(135deg, var(--held) 0 4px, color-mix(in srgb, var(--held) 72%, var(--surface)) 4px 8px); }
+.splitLegend { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.splitLegend > div { display: flex; flex-direction: column; gap: 5px; min-width: 0; }
+.splitLegend > div + div { align-items: flex-end; text-align: right; }
+.splitLabel { display: inline-flex; align-items: center; gap: 6px; font: 500 10px/1 var(--font-data); letter-spacing: 0.07em; text-transform: uppercase; color: var(--ink-3); }
+.splitLabel i { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+.splitWho { font-size: 12px; color: var(--ink-2); overflow-wrap: anywhere; }

@@ -1,0 +1,9 @@
+{
+  "name": "@plimsoll/stellar",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./src/index.ts" },
+  "scripts": { "typecheck": "tsc -p .", "test": "vitest run" },
+  "dependencies": { "@plimsoll/domain": "workspace:*", "@stellar/stellar-sdk": "^17.2.1" }
+}

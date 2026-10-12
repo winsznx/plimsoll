@@ -1,0 +1,9 @@
+.notice { display: flex; align-items: center; gap: 10px; padding: 10px 14px; margin-bottom: 20px; border-radius: var(--r-control); background: var(--held-soft); border: 1px solid var(--held-line); color: var(--ink); font-size: 13px; }
+.notice > svg { width: 16px; height: 16px; flex: none; color: var(--held-ink); }
+.notice strong { color: var(--held-ink); font-weight: 600; }
+.notice a { margin-left: auto; color: var(--held-ink); font-weight: 600; white-space: nowrap; text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 640px) {
+  .notice { flex-wrap: wrap; align-items: flex-start; }
+  .notice span { flex: 1 1 0; min-width: 0; }
+  .notice a { margin-left: 26px; }
+}

@@ -1,0 +1,9 @@
+.bar { display: flex; gap: 2px; width: 100%; min-width: 96px; }
+.bar span { height: 8px; min-width: 4px; border-radius: 3px; }
+.out { background: var(--signal); }
+.held { background: var(--hull); }
+.unfunded { background: var(--surface-2); box-shadow: inset 0 0 0 1px var(--line-2); }
+
+.legend { display: flex; gap: 12px; margin: 0; padding: 0; list-style: none; font: 500 10.5px/1 var(--font-data); letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-3); }
+.legend li { display: inline-flex; align-items: center; gap: 5px; }
+.legend i { width: 9px; height: 9px; border-radius: 2px; display: inline-block; }

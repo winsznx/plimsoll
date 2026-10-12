@@ -1,0 +1,18 @@
+# Local secrets and state never leave this machine; production values live in Vercel env.
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+/.data
+/internal
+node_modules
+**/node_modules
+**/.next
+contracts/target
+tests/e2e/test-results
+tests/e2e/playwright-report
+.wrangler
+**/.wrangler
+/videos

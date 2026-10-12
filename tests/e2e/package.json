@@ -1,0 +1,18 @@
+{
+  "name": "@plimsoll/e2e",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "e2e": "playwright test",
+    "e2e:full": "E2E_MUTATING=1 playwright test",
+    "typecheck": "tsc -p ."
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "4.13.0",
+    "@playwright/test": "1.63.0",
+    "@plimsoll/documents": "workspace:*",
+    "@types/node": "^24.0.0",
+    "typescript": "5.9.3"
+  }
+}

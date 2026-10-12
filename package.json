@@ -1,0 +1,39 @@
+{
+  "name": "plimsoll",
+  "private": true,
+  "license": "MIT",
+  "packageManager": "pnpm@11.23.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "dev": "pnpm --filter @plimsoll/web dev",
+    "build": "pnpm --filter @plimsoll/web build",
+    "typecheck": "pnpm -r typecheck",
+    "test": "pnpm -r test && pnpm test:contract",
+    "test:contract": "cargo test --manifest-path contracts/Cargo.toml",
+    "build:contract": "cd contracts && stellar contract build && cd .. && tsx scripts/export-contract-spec.ts",
+    "bootstrap:testnet": "pnpm build:contract && tsx scripts/bootstrap-testnet.ts",
+    "fixtures": "tsx scripts/generate-fixtures.ts",
+    "fixtures:scanned": "tsx scripts/generate-scanned-fixture.ts",
+    "verify:chain": "tsx scripts/verify-chain.ts",
+    "e2e": "tsx scripts/e2e-api.ts",
+    "e2e:browser": "pnpm --filter @plimsoll/e2e e2e",
+    "e2e:browser:full": "pnpm --filter @plimsoll/e2e e2e:full",
+    "contract:spec": "tsx scripts/export-contract-spec.ts",
+    "contract:spec:check": "tsx scripts/export-contract-spec.ts --check"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "tsx": "^4.23.15",
+    "typescript": "5.9.3",
+    "vitest": "^5.0.3",
+    "@plimsoll/domain": "workspace:*",
+    "@plimsoll/stellar": "workspace:*",
+    "@plimsoll/documents": "workspace:*",
+    "@stellar/stellar-sdk": "^17.2.1",
+    "@electric-sql/pglite": "0.5.8",
+    "@electric-sql/pglite-socket": "0.2.11"
+  },
+  "type": "module"
+}

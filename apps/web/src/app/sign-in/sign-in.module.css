@@ -1,0 +1,36 @@
+.bar { border-bottom: 1px solid var(--line); background: var(--surface); }
+.barInner { max-width: 1240px; margin: 0 auto; padding: 0 32px; height: 64px; display: flex; align-items: center; justify-content: space-between; gap: 16px; }
+/* Brand captions are coloured for the dark app rail; on a light header they need body ink. */
+.barInner :global(.brand small) { color: var(--ink-3); }
+.tools { display: flex; align-items: center; gap: 10px; }
+
+.stage {
+  min-height: calc(100dvh - 65px);
+  background-color: var(--bg);
+}
+.layout { max-width: 1240px; margin: 0 auto; padding: 48px 32px 72px; display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 40px; align-items: start; }
+.demo { min-width: 0; display: flex; flex-direction: column; }
+.title { font-size: 32px; letter-spacing: -0.035em; }
+.sub { margin: 8px 0 28px; font-size: 14px; color: var(--ink-2); }
+.custody { margin-top: 16px; font: 400 11.5px/1.5 var(--font-data); color: var(--ink-3); }
+
+.side { display: flex; flex-direction: column; gap: 16px; min-width: 0; }
+.side :global(.form-grid) { grid-template-columns: minmax(0, 1fr); }
+.panelTitle { font-size: 15px; }
+
+@media (max-width: 1024px) {
+  .layout { grid-template-columns: minmax(0, 1fr); gap: 32px; }
+  .side { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; }
+}
+@media (max-width: 720px) {
+  .barInner { padding: 0 16px; height: 56px; }
+  .barInner :global(.brand small) { display: none; }
+  .layout { padding: 28px 16px 48px; }
+  .title { font-size: 26px; }
+  .side { grid-template-columns: minmax(0, 1fr); }
+}
+
+/* The app shell collapses .brand to its mark below 1100px with !important; public pages keep the wordmark. */
+@media (max-width: 1100px) {
+  .barInner :global(.brand div) { position: static !important; width: auto; height: auto; overflow: visible; clip: auto; white-space: normal; }
+}

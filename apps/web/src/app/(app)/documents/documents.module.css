@@ -1,0 +1,29 @@
+.toolbar { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding: 10px 14px; border-bottom: 1px solid var(--line); }
+.toolbar :global(.btn) { min-height: 32px; }
+.toolbar .select { width: auto; max-width: 280px; min-height: 32px; }
+.note { margin-left: auto; font-size: 12px; color: var(--ink-3); }
+
+.empty { display: flex; align-items: center; flex-wrap: wrap; gap: 8px; padding: 22px 18px; font-size: 13px; color: var(--ink-2); }
+.empty svg { width: 18px; height: 18px; color: var(--ink-3); }
+
+.table th { padding-left: 12px; padding-right: 12px; }
+.table td { padding: 9px 12px; }
+.held { box-shadow: inset 3px 0 0 var(--held); }
+.doc { display: flex; align-items: center; gap: 10px; }
+.doc svg { width: 18px; height: 18px; color: var(--ink-3); flex: none; }
+.name { font-weight: 600; white-space: nowrap; }
+.line { margin-top: 2px; font-size: 12px; color: var(--ink-3); white-space: nowrap; }
+.ref { font: 500 12.5px var(--font-data); color: var(--ink); white-space: nowrap; text-decoration: underline; text-decoration-color: var(--line-2); text-underline-offset: 3px; }
+.ref:hover { text-decoration-color: currentColor; }
+.file { display: flex; align-items: baseline; gap: 6px; font-size: 12.5px; max-width: 260px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.ver { font: 500 11px/1 var(--font-data); padding: 2px 5px; border-radius: 3px; background: var(--well); color: var(--ink); }
+.error { margin-top: 4px; font-size: 12px; color: var(--held-ink); max-width: 220px; }
+
+@media (max-width: 640px) {
+  .toolbar { padding: 10px 12px; }
+  .toolbar .select { max-width: 100%; flex: 1 1 100%; }
+  .note { margin-left: 0; }
+}
+
+/* Anchors the visually hidden header text so it cannot widen the page past the scroll box. */
+.scroll { position: relative; }
